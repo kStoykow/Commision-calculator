@@ -42,7 +42,6 @@ function solve() {
 
         let total = Object.values(cents).reduce((a, b) => a + b);
         if (balance.value != '') {
-
             resultParser(Object.entries(cents).filter(e => e[1] != 0).sort((a, b) => a[0] - b[0]), total, ul);
         }
 
