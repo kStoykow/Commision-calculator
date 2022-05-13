@@ -13,8 +13,8 @@ function solve() {
 
         arr.map(e => {
             let li = document.createElement('li');
-            
-            li.textContent = `${e[0]} -> ${(e[1] / total * 100)}%`;
+
+            li.textContent = `${e[0]} -> ${(e[1] / total * 100).toFixed(4)}%`;
             ul.appendChild(li);
         });
     }
@@ -23,60 +23,22 @@ function solve() {
         e.preventDefault();
         const min = Number(balance.value) * 100 * 0.1;
         const max = (Number(balance.value) * 100 * 0.5);
-        let cents = {
-            '0.01': 0,
-            '0.02': 0,
-            '0.03': 0,
-            '0.04': 0,
-            '0.05': 0,
-            '0.06': 0,
-            '0.07': 0,
-            '0.08': 0,
-            '0.09': 0,
-            '0.10': 0,
-            '0.11': 0,
-            '0.12': 0,
-            '0.13': 0,
-            '0.14': 0,
-            '0.15': 0,
-            '0.16': 0,
-            '0.17': 0,
-            '0.18': 0,
-            '0.19': 0,
-            '0.20': 0,
-            '0.21': 0,
-            '0.22': 0,
-            '0.23': 0,
-            '0.24': 0,
-            '0.25': 0,
-            '0.26': 0,
-            '0.27': 0,
-            '0.28': 0,
-            '0.29': 0,
-            '0.30': 0,
-            '0.31': 0,
-            '0.32': 0,
-            '0.33': 0,
-            '0.34': 0,
-            '0.35': 0,
-            '0.36': 0,
-            '0.37': 0,
-            '0.38': 0,
-            '0.39': 0,
-            '0.40': 0,
-        }
+        let cents = {}
 
-        for (let i = 0; i < 1000000; i++) {
+        for (let i = 0; i < 100; i++) {
             let reward = (getDealPrice(min, max) * 0.0026);
             reward = (Math.floor(reward * 100) / 100).toFixed(2);
             if (reward <= 0.01) {
                 reward = 0.01;
             }
-
-            cents[reward]++;
+            if (cents.hasOwnProperty(reward) == false) {
+                cents[reward] = 0;
+            }
+            cents[reward] += 1;
         }
 
         let total = Object.values(cents).reduce((a, b) => a + b);
+        console.log(Object.values(cents).slice(100));
         if (balance.value != '') {
             resultParser(Object.entries(cents).filter(e => e[1] != 0), total, ul);
         }
