@@ -1,6 +1,5 @@
-# Vanilla JavaScript App
+This is simple Commision calculator app.
 
+It calculates the reward chances in percent, of a random deal price between 10% and 50% of User Balance. 
 
-[Azure Static Web Apps](https://docs.microsoft.com/azure/static-web-apps/overview) allows you to easily build JavaScript apps in minutes. Use this repo with the [quickstart](https://docs.microsoft.com/azure/static-web-apps/getting-started?tabs=vanilla-javascript) to build and customize a new static site.
-
-This repo is used as a starter for a _very basic_ HTML web application using no front-end frameworks.
+I'm using Vannila JS for my very first basic Azure static web app project.
