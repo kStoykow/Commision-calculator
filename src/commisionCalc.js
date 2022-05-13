@@ -1,7 +1,6 @@
 function solve() {
     let btn = document.getElementById('btn');
     let ul = document.getElementById('output');
-    let balance = document.getElementById('balance');
 
     function getDealPrice(min, max) {
         return (Math.random() * (max - min) + min) / 100;
@@ -11,9 +10,13 @@ function solve() {
             ul.removeChild(ul.firstChild);
         }
 
+        let li = document.createElement('li');
+        li.textContent = `Reward chances for ${Number(balance.value).toFixed(2)}$ are:`;
+        li.style.marginBottom = '1rem';
+        ul.appendChild(li);
+
         arr.map(e => {
             let li = document.createElement('li');
-
             li.textContent = `${e[0]} -> ${(e[1] / total * 100).toFixed(4)}%`;
             ul.appendChild(li);
         });
@@ -23,7 +26,7 @@ function solve() {
         e.preventDefault();
         const min = Number(balance.value) * 100 * 0.1;
         const max = (Number(balance.value) * 100 * 0.5);
-        let cents = {}
+        let cents = {};
 
         for (let i = 0; i < 100; i++) {
             let reward = (getDealPrice(min, max) * 0.0026);
@@ -38,9 +41,9 @@ function solve() {
         }
 
         let total = Object.values(cents).reduce((a, b) => a + b);
-        console.log(Object.values(cents).slice(100));
         if (balance.value != '') {
-            resultParser(Object.entries(cents).filter(e => e[1] != 0), total, ul);
+
+            resultParser(Object.entries(cents).filter(e => e[1] != 0).sort((a, b) => a[0] - b[0]), total, ul);
         }
 
         balance.value = '';

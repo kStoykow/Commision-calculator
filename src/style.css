@@ -1,20 +1,18 @@
 body {
-    background: linear-gradient(45deg, #FC466B, #3F5EFB);
-    height: 100%;
+    background: linear-gradient(25deg, #FC466B, #3F5EFB) no-repeat center center fixed;
     font-family: 'Montserrat', sans-serif;
-}
-
-.container {
-    position: absolute;
-    transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
+    height: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 form {
+    width: 25%;
+    margin: 10% auto;
     background: rgba(255, 255, 255, 0.3);
     padding: 3em;
-    height: 320px;
     border-radius: 20px;
     border-left: 1px solid rgba(255, 255, 255, 0.3);
     border-top: 1px solid rgba(255, 255, 255, 0.3);
@@ -39,7 +37,7 @@ form p {
 
 input {
     background: transparent;
-    width: 200px;
+    width: 70%;
     padding: 1em;
     margin-bottom: 2em;
     border: none;
@@ -90,18 +88,8 @@ input[type="button"]:active {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
 }
 
-.drop {
-    background: rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(10px);
-    border-radius: 10px;
-    border-left: 1px solid rgba(255, 255, 255, 0.3);
-    border-top: 1px solidrgba(255, 255, 255, 0.3);
-    box-shadow: 10px 10px 60px -8px rgba(0, 0, 0, 0.2);
-    position: absolute;
-    transition: all 0.2s ease;
-}
-
 ul {
+    height: fit-content;
     backdrop-filter: blur(10px);
     border-left: 1px solid rgba(255, 255, 255, 0.3);
     border-top: 1px solid rgba(255, 255, 255, 0.3);
@@ -109,15 +97,18 @@ ul {
     transition: all 0.2s ease;
     padding: 1em;
     list-style-type: none;
-    background: transparent;
-    width: 200px;
+    width: 70%;
     border: none;
     border-radius: 20px;
     color: #fff;
     font-family: Montserrat, sans-serif;
     font-weight: 500;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
     margin: auto;
+}
+
+ul:nth-child(1) {
+    margin-bottom: 1rem;
 }
 
 a,
