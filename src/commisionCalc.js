@@ -17,7 +17,7 @@ function solve() {
 
         arr.map(e => {
             let li = document.createElement('li');
-            li.textContent = `${e[0]} -> ${(e[1] / total * 100).toFixed(4)}%`;
+            li.textContent = `${e[0]}$ --> ${(e[1] / total * 100).toFixed(4)}%`;
             ul.appendChild(li);
         });
     }
