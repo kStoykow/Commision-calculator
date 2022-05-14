@@ -17,7 +17,7 @@ function solve() {
         ul.appendChild(li);
 
         let rewardLi = document.createElement('li');
-        rewardLi.textContent = `Total possible reward is around ${(calcTotalTheoreticalReward(arr.sort((a, b) => a[0] - b[0]), total)).toFixed(2)}$.`;
+        rewardLi.textContent = `Total roughly reward is around ${(calcTotalTheoreticalReward(arr.sort((a, b) => a[0] - b[0]), total)).toFixed(2)}$.`;
         rewardLi.style.marginBottom = '1rem';
 
         ul.appendChild(rewardLi);
