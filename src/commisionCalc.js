@@ -5,6 +5,7 @@ function solve() {
     function getDealPrice(min, max) {
         return (Math.random() * (max - min) + min) / 100;
     }
+
     function resultParser(arr, total, ul) {
         while (ul.firstChild) {
             ul.removeChild(ul.firstChild);
@@ -15,11 +16,25 @@ function solve() {
         li.style.marginBottom = '1rem';
         ul.appendChild(li);
 
+        let rewardLi = document.createElement('li');
+        rewardLi.textContent = `Total possible reward is around ${(calcTotalTheoreticalReward(arr.sort((a, b) => a[0] - b[0]), total)).toFixed(2)}$.`;
+        rewardLi.style.marginBottom = '1rem';
+
+        ul.appendChild(rewardLi);
         arr.map(e => {
             let li = document.createElement('li');
             li.textContent = `${e[0]}$ --> ${(e[1] / total * 100).toFixed(4)}%`;
             ul.appendChild(li);
         });
+    }
+
+    function calcTotalTheoreticalReward(list, total) {
+        let totalReward = 0;
+        list.map(e => {
+            totalReward += (50 * ((e[1] / total * 100) / 100) * Number(e[0]));
+        });
+
+        return totalReward;
     }
 
     function clickHandler(e) {
@@ -28,7 +43,7 @@ function solve() {
         const max = (Number(balance.value) * 100 * 0.5);
         let cents = {};
 
-        for (let i = 0; i < 100; i++) {
+        for (let i = 0; i < 1000000; i++) {
             let reward = (getDealPrice(min, max) * 0.0026);
             reward = (Math.floor(reward * 100) / 100).toFixed(2);
             if (reward <= 0.01) {
@@ -41,8 +56,9 @@ function solve() {
         }
 
         let total = Object.values(cents).reduce((a, b) => a + b);
+
         if (balance.value != '') {
-            resultParser(Object.entries(cents).filter(e => e[1] != 0).sort((a, b) => a[0] - b[0]), total, ul);
+            resultParser(Object.entries(cents).sort((a, b) => a[0] - b[0]), total, ul);
         }
 
         balance.value = '';
