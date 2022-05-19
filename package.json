@@ -1,0 +1,25 @@
+{
+  "name": "commision-calculator",
+  "version": "1.0.0",
+  "description": "This is simple Commision calculator app.",
+  "main": "index.js",
+  "scripts": {
+    "run": "{file}",
+    "test": "mocha ./*.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kStoykow/Projects/tree/master/Commision-calculator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kStoykow/Projects/tree/master/Commision-calculator/issues"
+  },
+  "homepage": "https://github.com/kStoykow/my-first-static-web-app#readme",
+  "dependencies": {
+    "chai": "^4.3.6",
+    "mocha": "^10.0.0"
+  }
+}
